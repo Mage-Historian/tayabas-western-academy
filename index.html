@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@800&display=swap" rel="stylesheet">
+<link href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAA8PnxAC5eLgA0ZTQAB8b/ABXI9QAVTBQAFXplAABEAQD1+vUA+v//APz//wAARAAA////AGmPZwD//P4AA0cHAE7w6ADw+PAAi6yLAAFGAQADRAUA/v/9AABHDAD//v8A9/v3APD38QALyP4AAEYAAAFGAAAARQIA/P/8AEdxQQDl7+UAHlkeAICiggDL3csADUoMABlUGgAWxvsAAUUBAP3+/QD6/PoACUoLAIGviAAxZDAABEYFAABFAAACRAIALvf1AGSNZgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwTHBwqAAAAAAAAAAAAABwaDQMPJQ0wAAAAAAAAABwvLgQEBAQEKBwAAAAAACEmEAQEBRsEBAQZAAAAAAAUDQcEBA0NDSAVEhwAAAAAKRgEBB0NDR0eBAsWAAAAAA0GBBwdHQ0IHAQsHwAAAAAdKwQEBB0NERwnDR0AAAAAMhwKBAQxBBcEHCQAAAAAAAAcDgEEBAQEIhwcAAAAAAAAAB0NAiMWKA0cAAAAAAAAAAAAHQkcDC0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAD//wAA+D8AAPAPAADgBwAAwAcAAMADAADAAwAAwAMAAMADAADABwAA4AcAAPAPAAD4PwAA//8AAP//AAA=" rel="icon" type="image/x-icon" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: #FFF9D4;
+	  max-width: 100%;
+	  max-height:100%;
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(rgba(39, 98, 33, 0.7), rgba(20, 54, 18, 0.7)), url('./TWA/10.5.JPG') no-repeat center center scroll;
+      background-size: 100% 100%;
+      color: white;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      padding: 1em;
+      height: 500px;
+	  font-family: 'Hahmlet', serif;
+    }
+
+    header h1 {
+      font-size: 50px;
+      font-weight: bold;
+      text-shadow: 2px 2px #333;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+	  background-color: #947404;
+    }
+   
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      display: inline;
+    }
+
+    nav a {
+      color: black;
+	  font-weight: bold;
+      text-decoration: none;
+      padding: 0.5em 1em;
+    }
+	
+    nav a:hover {
+      background-color: #B79001;
+    }
+	
+	.nav-links {
+	     flex: 1;
+		 text-align: center;
+		 height: 50px;
+		 background: #D4AF37;
+		 width: 100%;
+		 padding: 1px 1px 1px 1px;
+	}
+	
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 0.5em 0;
+      margin: 0;
+      z-index: 1;
+      width: 150px;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    
+    .dropdown-menu li {
+      display: block;
+      padding: 0.5em 1em;
+    }
+
+    .dropdown-menu li:hover {
+      background-color: #ccc;
+    }
+    
+    .dropdown-menu li a {
+      color: black;
+    }
+	
+	.contact {
+	 padding: 0;
+	 border:1px solid #276221;
+	 align-items: center;
+	 width: 100%;
+	 height: 280px;
+	 background: linear-gradient(rgba(39, 98, 33, 0.7), rgba(20, 54, 18, 0.7)), url('./TWA/bc.jpg') no-repeat center center scroll;
+	 background-size: 100%;
+	 font-family: 'Hahmlet', serif;
+	 color: white;
+	 padding-bottom: 10px;
+	 }
+	 
+	 .contact-button {
+	  transition: background-color 0.3s ease-in-out;
+      border:1px solid #D4AF37;
+	  background: #D4AF37;
+	  margin-top: 20px;
+	  align-items: center;
+	  height: 20px;
+	  color: white;
+	  text-decoration: none;
+	  padding: 5px 10px 5px 10px;
+	 }
+	
+	.contact-text {
+	 padding: 0px 70px 20px 70px;
+	 
+	 }
+	 
+	.hovernow {
+	padding: 10px;
+	border: 1px solid #ccc;
+	margin: 10px;
+	box-shadow: 0 1 px 2px rgba (0,0,0,0.15);
+	transition:box-shadow;
+	display: in-line block;
+	align-items: center;
+	width: 300px;
+	background: #947404;
+	}
+	
+	.hovernow:hover {
+	box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+	}
+	
+	.mission-vision {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	}
+	
+	.image-container {
+	 border: 5px dotted #E1C564;
+	 display: flex;
+	 padding: 5px;
+	 align-items: center;
+	 justify-content: center;
+	 position: relative;
+	 width: 250px;
+	 height: 350px;
+	 margin-bottom: 50px;
+    }
+	
+	.image-container img {
+	  width: 100%
+	  height: 100%
+	  object-fit: contain;
+	}
+	
+	.caption {
+      position: absolute;
+      top: 0;
+      left: 0;
+	  opacity: 0;
+	  transition: opacity 1s;
+	  background-color: rgba(0, 0, 0, 0.7); 
+      color: white; 
+      font-size: 16px; 
+      font-weight: bold; 
+      padding: 5px 10px; 
+      border-radius: 5px; 
+	  justify-content: center;
+    }
+
+    .image-container:hover .caption {
+      opacity: 1;
+    }
+	
+	.image-containers-wrapper {
+	  display: flex;
+	  justify-content: center;
+	  flex-wrap: wrap;
+	  gap: 30px;
+	}
+	
+	.shadow {
+	 transition: box-shadow 0.3s ease-in-out;
+	}
+
+	.shadow: hover {
+	 box-shadow: 10px 10px 5px rgba(0,0,0,0.5);
+	 }
+	 
+	.nav-fa {
+	    display: none;
+	}
+	
+	
+	 /*screen respnsiveness*/
+	 
+    @media (max-width:600px){
+	
+	header {
+     width: 100vw;
+    }
+	
+	header h1{
+	  font-size: 30px;
+	 }
+	 
+	.mission-vision {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+    }
+	
+	.image-containers-wrapper {
+	 display: flex;
+	 flex-direction: column;
+	 align-items: center;
+	}
+	
+	.contact {
+	max-width: 100%;
+	height: 300px;
+	padding-bottom: 0;
+	font-size: 10px;
+	align-items: center;
+	padding-top: 20px;
+	}
+	
+	.contact-text {
+	  padding: 0, 0, 0, 0;
+	}
+	
+	.contact-button {
+	  align-items: center;
+	  height: 20px;
+	  margin-bottom: 20px;
+	 }
+	
+	.courses-board {
+	 max-width: 100%;
+	  height: 2000px;
+	  padding-bottom: 0;
+	  font-size: 10px;
+	  padding-top: 20px;
+	  align-items: center;
+	  margin-bottom: 20px;
+	}
+	
+	.courses-wrapper {
+	 display: flex;
+	 flex-direction: row;
+	 align-items: center;
+	 justify-content: center;
+	}
+	
+	
+	.logo {
+	  width: 2px;
+	  height: 2px;
+	  top: 2px;
+	  left:2px;
+	}
+	 
+	.nav-links ul li {
+	  display: block;
+	  padding: 20px 20px 20px 20px;
+	 }
+	 
+    .nav-links {
+	  position: absolute;
+	  background: #D4AF37;
+	  height: 100vh;
+	  width: 200px;
+	  top: 0;
+	  right:-200px;
+	  text-align: left;
+	  z-index: 2;
+	  transition: 1s;
+	}	 
+	
+	.nav-fa {
+	display: block;
+	color: #black;
+	margin: 10px;
+	font-size: 40px;
+	margib-bottom: 5px;
+	cursor: pointer;
+	
+	}
+	
+	.nav-links ul {
+	 padding: 10px;
+	}
+	
+	
+	.courses-title {
+	  font-size:10px;
+	 }
+	 
+   }
+
+    footer {
+      background-color: rgba(20, 54, 18);
+      color: white;
+      text-align: center;
+      padding: 1em;
+     }	
+	 
+	 img{
+	 max-width: 100%;
+	 height: auto;	 
+	}
+    main {
+      padding: 1em 0em;
+	  background: linear-gradient(rgba(20, 54, 18, 0.7), rgba(212, 175, 55, 0.7)), url('./TWA/bg.jpg') no-repeat center center scroll;
+	  background-size: 100% 100%;
+	  color: white;
+    }
+	.main-body {
+	 margin-right: 50px;
+	 margin-left: 50px;
+	 }
+		
+	.custom-font-size {
+	  font-size: 7px;
+	}
+	
+	.courses-board {
+	 border: 3px dotted rgba(212, 175, 55);
+	 background: rgba(39, 98, 33, 0.7);
+	 align-items: center;
+	 width: 1000px;
+	 height: 1500px;
+	 margin-left: auto;
+	 margin-right: auto;
+	 margin-top: 30px;
+	 padding: 10px 50px 30px 50px;
+	}
+	
+	.courses {
+	padding: 10px;
+	border: 1px solid #5bb450;
+	margin: 10px;
+	box-shadow: 0 1 px 2px rgba(0,0,0,0.15);
+	transition:box-shadow;
+	display: in-line block;
+	align-items: center;
+	background: #5bb450;
+	color: black;
+	width: 300px;
+	}
+	
+	.courses img {
+	width: 300px;
+	height: 200px;
+	padding: 0 0 0 0;
+	}
+	
+	.courses:hover {
+	box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+	}
+	
+	.courses-wrapper {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	}
+	
+	.courses-title {
+	font-size: 40px;
+	font-family: 'Hahmlet', serif;
+	}
+	
+
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+ <div class="header-container">
+    <h1>TAYABAS WESTERN ACADEMY</h1>
+ </div>
+   </header>
+  <nav>
+  <div class="nav-links" id="navLinks">
+  <div class="nav-fa">
+     <img src= "./TWA/buttons/close.png" onclick="hideMenu()" height= "15px" width= "50px">
+    </div>  
+	  <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li class="dropdown">
+          <a href="#">Courses &#9662;</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Course 1</a></li>
+            <li><a href="#">Course 2</a></li>
+            <li><a href="#">Course 3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+	  </div>
+	  <div class="nav-fa">
+	  <img src= "./TWA/buttons/menu.png" onclick="showMenu()" height= "15px" width= "50px">
+      </div>   
+	</nav>
+  <main>
+    <div class="main-body">
+    <h2>Welcome, Academician!</h2>
+    <p>Welcome to Tayabas Western Academy, the School Of Choice, where education and excellence meet. We are thrilled to have you here with us and can't wait to see all the amazing things you will accomplish.</p>
+    </div>
+  <div class="mission-vision">	
+   <div class="hovernow">
+     <h2> OUR MISSION </h2>
+	 <p> The <strong>Tayabas Western Academy</strong>, the School of Choice, provides quality education that promotes a culture of excellence and instills positive values for responsible and productive citizenship</p>
+   </div>
+   <div class="hovernow">
+   <h2>OUR VISION</h2>
+   <p> To be globally competent, confident, competitive, and proactive learning community </p>
+   </div>
+   <div class="hovernow">
+   <h2>OUR PHILOSOPHY</h2>
+   <p>The <strong>Tayabas Western Academy</strong> is a recognized educational institution that enhances minds, cultivates values, and lives in wisdon through holistic education.</p>
+  </div>
+  </div>
+  <br>
+  <h2> OUR BUILDINGS </h2>
+ <div class="image-containers-wrapper">
+  <div class="image-container">
+  <img src="./TWA/10.jpg" alt="TWA Main Campus" class="shadow">
+  <p class="caption"> <strong>MAIN CAMPUS</strong> <br> Located: De Gala St., Brgy Poblacion, Candelaria, Quezon<br><span class="custom-font-size">Photo by: Jethro Grumal</span></p>
+  </div>
+  
+   <div class="image-container">
+  <img src="./TWA/shs.jpg" alt="TWA Main Campus" class="shadow">
+  <p class="caption"> <strong>SENIOR HIGH SCHOOL CAMPUS</strong> <br> Located: Nadres St., Brgy Poblacion, Candelaria, Quezon<br><span class="custom-font-size">Photo by: John Christian Miranda</span></p>
+  </div>
+  
+  <div class="image-container">
+  <img src="./TWA/11.jpg" alt="TWA Main Campus" class="shadow">
+  <p class="caption"> <strong>ELEMENTARY CAMPUS</strong> <br> Located: De Gala St., Brgy Poblacion, Candelaria, Quezon<br><span class="custom-font-size">Photo by: John Christian Miranda</span></p>
+  </div>
+ </div> 
+<div class="contact">
+ <h1> WANT TO BE AN ACADEMICIAN? </h1>
+  <div class="contact-text">
+ <p> Tayabas Western Academy has many opportunities to offer! Join the community of accomplished academics at Tayabas Western Academy and experience the benefits of our exceptional academic programs, supportive community, and distinguished faculty. Come and join our community, be an Academician today!</p>
+  </div>
+  <a href="#" class="contact-button" onclick="toggleColor(this)">Visit Us!</a>
+ </div>
+  <div class="courses-board">
+  <div class="courses-title">
+ <p>COURSES OFFERED</p>
+ </div>
+ <div class="courses-wrapper">
+ <div class="courses">
+  <img src="./TWA/acc.jpg">
+  <p><strong>Bacherlor of Science in Accounting (BSA)</strong></p>
+  </div>
+  <div class="courses">
+  <img src="./TWA/bsma.JPG">
+  <p><strong>Bacherlor of Science in Management Accounting (BSMA)</strong></p>
+  </div>
+  </div>
+  
+  <div class="courses-wrapper">
+  <div class="courses">
+  <img src="./TWA/bsoa.JPG">
+  <p><strong>Bacherlor of Science in Office Administration (BSOA)</strong></p>
+  </div> 
+   <div class="courses">
+  <img src="./TWA/beed.jpg">
+  <p><strong>Bachelor of Elementary Education (BEED)</strong></p>
+  </div>
+  </div>
+  
+   <div class="courses-wrapper">
+   <div class="courses">
+  <img src="./TWA/bsed.jpg">
+  <p><strong>Bacherlor of Secondary Education (BSED)</strong></p>
+  </div>
+   <div class="courses">
+  <img src="TWA/bsba.jpg">
+  <p><strong>Bacherlor of Science in Business Administration (BSBA)</strong></p>
+  </div>
+  </div>
+  
+  <div class="courses-wrapper">
+   <div class="courses">
+  <img src="/.TWA/aoa.jpg">
+  <p><strong>Assistant Office Associate (AOA)</strong></p>
+  </div>
+  </div>
+ </div>
+ </div>
+ </main>
+
+
+  
+  <footer>
+    <p>&copy; 2023 Tayabas Western Academy. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const hoverNowElement = document.querySelector('.hovernow');
+  hoverNowElement.addEventListener('mouseover', function() {
+    hoverNowElement.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.8)';
+  });
+  hoverNowElement.addEventListener('mouseout', function() {
+    hoverNowElement.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.15)';
+  });
+
+  const hoverNowElementCourses = document.querySelector('.courses');
+  hoverNowElementCourses.addEventListener('mouseover', function() {
+    hoverNowElementCourses.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.8)';
+  });
+  hoverNowElementCourses.addEventListener('mouseout', function() {
+    hoverNowElementCourses.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.15)';
+  });
+
+  document.querySelectorAll(".image-container").forEach(function (container) {
+    container.addEventListener("mouseenter", function () {
+      this.querySelector(".caption").style.display = "block";
+    });
+
+    container.addEventListener("mouseleave", function () {
+      this.querySelector(".caption").style.display = "none";
+    });
+  });
+
+  document.querySelector('.nav-toggle').addEventListener('click', function () {
+    document.querySelector('nav').classList.toggle('open');
+  });
+});
+
+function toggleColor(button) {
+  if (button.style.backgroundColor === '#B79001') {
+    button.style.backgroundColor = '#D4AF37';
+  }else {
+   button.style.backgroundColor = '#B79001';
+  }
+}
+
+var navLinks = document.getElementById("navLinks");
+
+function showMenu(){
+	navLinks.style.right = "0";
+}
+function hideMenu(){
+	navLinks.style.right = "-200px";
+}
+
+</script>
+
+
+</body>
+</html>
