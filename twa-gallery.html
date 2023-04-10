@@ -1,0 +1,527 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@800&display=swap" rel="stylesheet">
+<link href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAA8PnxAC5eLgA0ZTQAB8b/ABXI9QAVTBQAFXplAABEAQD1+vUA+v//APz//wAARAAA////AGmPZwD//P4AA0cHAE7w6ADw+PAAi6yLAAFGAQADRAUA/v/9AABHDAD//v8A9/v3APD38QALyP4AAEYAAAFGAAAARQIA/P/8AEdxQQDl7+UAHlkeAICiggDL3csADUoMABlUGgAWxvsAAUUBAP3+/QD6/PoACUoLAIGviAAxZDAABEYFAABFAAACRAIALvf1AGSNZgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwTHBwqAAAAAAAAAAAAABwaDQMPJQ0wAAAAAAAAABwvLgQEBAQEKBwAAAAAACEmEAQEBRsEBAQZAAAAAAAUDQcEBA0NDSAVEhwAAAAAKRgEBB0NDR0eBAsWAAAAAA0GBBwdHQ0IHAQsHwAAAAAdKwQEBB0NERwnDR0AAAAAMhwKBAQxBBcEHCQAAAAAAAAcDgEEBAQEIhwcAAAAAAAAAB0NAiMWKA0cAAAAAAAAAAAAHQkcDC0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAD//wAA+D8AAPAPAADgBwAAwAcAAMADAADAAwAAwAMAAMADAADABwAA4AcAAPAPAAD4PwAA//8AAP//AAA=" rel="icon" type="image/x-icon" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: #FFF9D4;
+	  max-width: 100%;
+	  max-height:100%;
+    }
+
+    header {
+      background: #276221;
+      color: white;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      padding: 1em;
+      height: 100px;
+	  font-family: 'Hahmlet', serif;
+    }
+
+    header h1 {
+      font-size: 30px;
+      font-weight: bold;
+      text-shadow: 2px 2px #333;
+    }
+	
+	.logo {
+	 width: 90px;
+	 height: 90px;
+	 position: absolute;
+	 margin-bottom: 40px;
+	 margin-top:40px;
+	 margin-right: 1000px;
+	 }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+	  background-color: #947404;
+    }
+   
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      display: inline;
+    }
+
+    nav a {
+      color: black;
+	  font-weight: bold;
+      text-decoration: none;
+      padding: 0.5em 1em;
+    }
+	
+    nav a:hover {
+      background-color: #B79001;
+    }
+	
+	.nav-links {
+	     flex: 1;
+		 text-align: center;
+		 height: 50px;
+		 background: #D4AF37;
+		 width: 100%;
+		 padding: 1px 1px 1px 1px;
+	}
+	
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #D4AF37;
+      border: 1px solid black;
+      padding: 0.5em 0;
+      margin: 0;
+      z-index: 1;
+      width: 300px;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    
+    .dropdown-menu li {
+      display: block;
+      padding: 0.5em 1em;
+    }
+
+    .dropdown-menu li:hover {
+      background-color: #947404	;
+    }
+    
+    .dropdown-menu li a {
+      color: black;
+    }
+	
+	 
+	 
+	.nav-fa {
+	    display: none;
+	}
+	
+	.gallery {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			margin: 0 auto;
+			max-width: 1000px;
+			margin-top: 40px;
+			grid-gap: 15px;
+		}
+
+		.gallery img {
+			max-width: 100%;
+			margin-bottom: 0px;
+			object-fit: cover;
+			cursor: pointer;
+			transition: transform 0.3s ease-in-out;
+			border: 2px solid white;
+		}
+		
+		.gallery img:hover {
+			transform: scale(1.02);
+		}
+
+		.fancybox-toolbar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 50px;
+			background-color: rgba(0, 0, 0, 0.5);
+			padding: 0 20px;
+			box-sizing: border-box;
+		}
+
+		.fancybox-navigation {
+			color: #fff;
+			font-size: 24px;
+			cursor: pointer;
+		}
+
+		.fancybox-close-small {
+			color: #fff;
+			font-size: 24px;
+			cursor: pointer;
+		}
+		
+		.gallery .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.gallery a:hover .caption {
+    opacity: 1;
+}
+	
+	
+	 /*screen respnsiveness*/
+	 
+    @media (max-width:600px){
+	
+	header {
+     width: 100vw;
+    }
+	
+	header h1{
+	  font-size: 25px;
+	   }
+	
+	
+	.logo {
+	 display: flex;
+	 flex-direction: column;
+	 align-items: center;
+	 width: 90px;
+	 height: 90px;
+	 position: absolute;
+	 margin-bottom: 200px;
+	 }
+	 
+	.nav-links ul li {
+	  display: block;
+	  padding: 20px 20px 20px 20px;
+	 }
+	 
+    .nav-links {
+	  position: absolute;
+	  background: #D4AF37;
+	  height: 100vh;
+	  width: 200px;
+	  top: 0;
+	  right:-200px;
+	  text-align: left;
+	  z-index: 2;
+	  transition: 1s;
+	}	 
+	
+	.nav-fa {
+	display: block;
+	color: #black;
+	margin: 10px;
+	font-size: 40px;
+	margib-bottom: 5px;
+	cursor: pointer;
+	
+	}
+	
+	.nav-links ul {
+	 padding: 10px;
+	}
+	 .main-body {
+	 margin: 0;
+	 }
+	 
+	 .gallery {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			margin-right: 30px;
+			margin-left: 30px;
+			max-width: 900px;
+			align-items: center;
+		}
+
+		.gallery img {
+			max-width: 100%;
+		}
+		
+		.fancybox-toolbar {
+			width: 100%;
+			height: 20px;
+			overflow: hidden;
+			background-color: rgba(0, 0, 0, 0.5);
+			padding: 0 0px;
+			box-sizing: border-box;
+		}
+
+		.fancybox-navigation {
+			color: #fff;
+			font-size: 10px;
+			cursor: pointer;
+		}
+
+		.fancybox-close-small {
+			color: #fff;
+			font-size: 10px;
+			cursor: pointer;
+		}
+		
+		.custom-text {
+	     font-size: 10px;
+	     margin-top: 5px;
+		 margin-right: 10px;
+		 margin-left: 10px;
+	}
+		
+   }
+   
+
+    footer {
+      background-color: rgba(20, 54, 18);
+      color: white;
+      text-align: center;
+      padding: 1em;
+	  margin-bottom: 0;
+     }	
+	 
+	 img{
+	 max-width: 100%;
+	 height: auto;	 
+	}
+    main {
+      padding: 1em 0em;
+	  background: rgba(0, 0, 0, 0.8);
+	  background-size: 100%;
+	  color: white;
+    }
+	
+	.custom-title {
+	font-size: 30px;
+	font-family: 'Hahmlet', serif;
+	color: white;
+	text-align: center;
+	color: white;
+	margin-top: 5px;
+	}
+	
+	.custom-text {
+	color: white;
+	text-align: center;
+	font-family: 'Poppins', san-serif;
+	font-size: 15px;
+	margin-top: 5px;
+	}
+	
+	.small-text {
+	font-size: 7px;
+	}
+	.image-container {
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* change this value to adjust the aspect ratio */
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+  
+
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+ <img src="./TWA/logo.png">
+ </div>
+ <div class="header-container">
+    <h1>TAYABAS WESTERN ACADEMY</h1>
+ </div>
+   </header>
+  <nav>
+  <div class="nav-links" id="navLinks">
+  <div class="nav-fa">
+     <img src= "./TWA/buttons/close.png" onclick="hideMenu()" height= "15px" width= "50px">
+    </div>  
+	   <ul>
+        <li><a href="https://mage-historian.github.io/tayabas-western-academy/">Home</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li class="dropdown">
+          <a href="#">About &#9662;</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">History of Tayabas Western Academy</a></li>
+            <li><a href="#">Courses and Strands Offered</a></li>
+            <li><a href="./Visit TWA!.html">Contact</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Works and Activities</a></li>
+		<li class="dropdown">
+          <a href="#">Log-In &#9662;</a>
+          <ul class="dropdown-menu">
+            <li><a href="./student-login.html">Student Log-In</a></li>
+            <li><a href="./teacher-login.html">Teacher Log-In</a></li>
+          </ul>
+        </li>
+      </ul>
+	  </div>
+	  <div class="nav-fa">
+	  <img src= "./TWA/buttons/menu.png" onclick="showMenu()" height= "15px" width= "50px">
+      </div>   
+	</nav>
+  <main>
+   <p= class="custom-title"> FREE IMAGE WALL </p>
+   <p class="custom-text"> This is the free image wall of Academicians where they post random photos taken within the school. <br> Please <strong><u>click the images</u></strong> for their respective <strong><u>captions</u></strong>. You may login to add yours!</p>
+   
+    <div class="gallery">
+	
+	    <a data-fancybox="images" href="./TWA/16.jpg" data-caption="<strong>A Busy Saturday Noon.</strong><br>Photo by: John Christian Miranda">
+			<div class="image-container">
+			<img src="./TWA/16.jpg" alt="Image 1">
+		    </div>
+		</a>
+		<a data-fancybox="images" href="./TWA/18.jpg" data-caption="<strong>A view of the Moon from the West Wing</strong><br>Photo by: John Christian Miranda">
+			<img src="./TWA/18.jpg" alt="Image 2">
+		</a>
+		
+		<a data-fancybox="images" href="./TWA/23.jpg" data-caption="<strong>View of the sunset from TWA's gymnasium (5th floor).</strong><br>Photo by: John Christian Miranda">
+			<div class="image-container">
+			<img src="./TWA/23.jpg" alt="Image 3">
+		    </div>
+		</a>
+		
+		<a data-fancybox="images" href="./TWA/7.jpg" data-caption="<strong>A stage performance during the second day of TWA College Day (March 14, 2023)</strong><br>Photo by: Rojan Onrubia">
+			<div class="image-container">
+			<img src="./TWA/7.jpg" alt="Image 4">
+		    </div>
+		</a>
+		
+		<a data-fancybox="images" href="./TWA/12.jpg" data-caption="<strong>TWA Alumni Wing at night.</strong><br>Photo by: Jhanelle Belila">
+			<img src="./TWA/12.jpg" alt="Image 5">
+		</a>
+		
+		<a data-fancybox="images" href="./TWA/6.jpg" data-caption="<strong>TWA College Students having their break.</strong><br>Photo by: Rojan Onrubia">
+			<div class="image-container">
+			<img src="./TWA/6.jpg" alt="Image 6">
+		    </div>
+		</a>
+		
+		<a data-fancybox="images" href="./TWA/2.jpg" data-caption="<strong>The flag and the Alma Mater.</strong><br>Photo by: Rojan Onrubia">
+			<div class="image-container">
+			<img src="./TWA/2.jpg" alt="Image 7">
+		    </div>
+		</a>
+		
+		<a data-fancybox="images" href="./TWA/17.jpg" data-caption="<strong>An afternoon from the 3rd floor.</strong><br>Photo by: Dina Torres">
+			<div class="image-container">
+			<img src="./TWA/17.jpg" alt="Image 8">
+		    </div>
+		</a>
+		
+		<a data-fancybox="images" href="./TWA/26.jpg" data-caption="<strong>The LEAD (Lingkod Estudyante, Ehemplo, Aktibo, at Disiplinado) Party during the campaign for the 2022-2023 Supreme Student Council (SSC) Elections.</strong><br>Photo by: Khing Dimaunahan">
+			<div class="image-container">
+			<img src="./TWA/26.jpg" alt="Image 9">
+		    </div>
+		</a>
+		
+		<a data-fancybox="images" href="./TWA/24.jpg" data-caption="<strong>The Senior High School (SHS) Campus from the outside.</strong><br>Photo by: Luis Angelo Abenoja">
+			<div class="image-container">
+			<img src="./TWA/24.jpg" alt="Image 10">
+		    </div>
+		</a>
+		
+		<a data-fancybox="images" href="./TWA/25.jpg" data-caption="<strong>Random photo from TWA's gymnasium (5th floor).</strong><br>Photo by: John Christian Miranda">
+			<div class="image-container">
+			<img src="./TWA/25.jpg" alt="Image 11">
+		    </div>
+		</a>
+		
+		<a data-fancybox="images" href="./TWA/5.jpg" data-caption="<strong>A photo from the first day of College Day.</strong><br>Photo by: Rojan Onrubia">
+			<div class="image-container">
+			<img src="./TWA/5.jpg" alt="Image 12">
+		    </div>
+		</a>
+		
+		<a data-fancybox="images" href="./TWA/19.jpg" data-caption="<strong>Planet Venus spotted  above the West Wing (March 14, 2023)</strong><br>Photo by: John Christian Miranda">
+			<div class="image-container">
+			<img src="./TWA/19.jpg" alt="Image 13">
+		    </div>
+		</a>
+		
+		<a data-fancybox="images" href="./TWA/20.jpg" data-caption="<strong>Ceiling view of the North Wing.</strong><br>Photo by: John Christian Miranda">
+			<div class="image-container">
+			<img src="./TWA/20.jpg" alt="Image 14">
+		    </div>
+		</a>
+		
+		<a data-fancybox="images" href="./TWA/21.jpg" data-caption="<strong>A digital art.</strong><br>Art by: John Christian Miranda">
+			<div class="image-container">
+			<img src="./TWA/21.jpg" alt="Image 15">
+		    </div>
+		</a>
+		
+		<a data-fancybox="images" href="./TWA/15.jpg" data-caption="<strong>An ordinary night.</strong><br>Photo by: John Christian Miranda">
+			<div class="image-container">
+			<img src="./TWA/15.jpg" alt="Image 16">
+		    </div>
+		</a>
+	</div>
+  
+ </main>
+ 
+  <footer>
+    <p>&copy; 2023 Tayabas Western Academy. All rights reserved.</p>
+  </footer>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<script>
+var navLinks = document.getElementById("navLinks");
+
+function showMenu(){
+	navLinks.style.right = "0";
+}
+function hideMenu(){
+	navLinks.style.right = "-200px";
+}
+  
+  
+
+</script>
+
+
+</body>
+</html>
